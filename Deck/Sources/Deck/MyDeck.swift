@@ -8,10 +8,10 @@
 import SwiftUI
 
 public protocol MyDeck: Deck, View {
-  associatedtype Content: Deck
-  var body: Content { get }
+    associatedtype Content: Deck
+    var body: Content { get }
 }
 
 public extension MyDeck {
-  var length: Int { body.length }
+    var length: Int { body.length }
 }

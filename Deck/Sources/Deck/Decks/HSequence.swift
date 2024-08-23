@@ -1,23 +1,23 @@
 //
-//  SwiftUIView.swift
+//  HSequence.swift
 //
 //
-//  Created by Kit Langton on 12/30/23.
+//  Created by Francisco Serrano on 8/22/24.
 //
 
 import SwiftUI
 
-public struct VSequence: Deck {
+public struct HSequence: Deck {
     @Environment(\.stepIndex) var step
     
     // Protocol conformance
     public var length: Int { decks.reduce(into: 0) { $0 += $1.length } }
     
-    var alignment: HorizontalAlignment = .leading
+    var alignment: VerticalAlignment = .top
     var decks: [any Deck]
     
     public init(
-        alignment: HorizontalAlignment = .leading,
+        alignment: VerticalAlignment = .top,
         @DeckArrayBuilder decks: () -> [any Deck]
     ) {
         self.decks = decks()
@@ -26,7 +26,7 @@ public struct VSequence: Deck {
     
     public var body: some View {
         let activeDecks = self.activeDecks
-        VStack(alignment: alignment, spacing: 40) {
+        HStack(alignment: alignment, spacing: 40) {
             ForEach(activeDecks, id: \.offset) { deck, _, start in
                 AnyView(deck).environment(\.stepIndex, start)
                     .transition(.blur.combined(with: .opacity).combined(with: .scale(scale: 0.8)))
@@ -53,7 +53,7 @@ public struct VSequence: Deck {
 
 #Preview {
     DeckView {
-        VSequence {
+        HSequence {
             Text("Hello")
             Text("World")
             Text("How")

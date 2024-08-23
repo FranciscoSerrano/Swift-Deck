@@ -8,12 +8,12 @@
 import SwiftUI
 
 public struct EmptyDeck: Deck {
-  public init() {
-  }
-  
-  public var length: Int { 1 }
-
-  public var body: some View {
-    EmptyView()
-  }
+    public init() {
+    }
+    
+    public var length: Int { 1 }
+    
+    public var body: some View {
+        EmptyView()
+    }
 }

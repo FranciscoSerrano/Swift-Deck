@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:DeckExample/DeckExample.xcodeproj">
+      location = "group:Deck">
    </FileRef>
    <FileRef
-      location = "group:Deck">
+      location = "group:DeckExample/DeckExample.xcodeproj">
    </FileRef>
 </Workspace>
